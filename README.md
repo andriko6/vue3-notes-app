@@ -1,6 +1,10 @@
 # vue3-notes-app
 
 ## Project setup
+
+# Recommended 16 version of Node ☝️❗
+
+## Project setup
 ```
 npm install
 ```

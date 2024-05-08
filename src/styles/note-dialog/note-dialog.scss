@@ -1,0 +1,189 @@
+.note-dialog {
+  border: 1px solid rgba($color: #fff, $alpha: 0.2);
+  border-radius: 4px;
+  justify-content: space-between;
+  overflow: auto;
+  opacity: 0;
+  padding: 2rem;
+  scrollbar-color: #7a7a7a transparent;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  z-index: -10;
+
+  @include respond(h600px) {
+    position: absolute;
+    top: 30rem;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &,
+  .note-content,
+  .user-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 2rem;
+  }
+
+  .note-content,
+  .action-buttons,
+  .user-inputs {
+    width: 100%;
+  }
+
+  button,
+  .note-title,
+  .note-text {
+    border: none;
+
+    &:not(.theme-buttons button) {
+      background-color: transparent;
+    }
+  }
+
+  .note-title:disabled,
+  .note-text:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+
+  svg {
+    fill: #fff;
+  }
+}
+
+.note-dialog-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 100;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  button {
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    svg {
+      height: 2.4rem;
+
+      &:first-of-type {
+        margin-left: -6px;
+      }
+    }
+  }
+}
+
+.sorting-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.preset-selector {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+}
+
+.selector {
+  background: transparent;
+  color: white;
+}
+
+.favourite-button {
+  margin-left: 1.4rem;
+}
+
+.user-inputs {
+  .note-title,
+  .note-text {
+    width: 100%;
+    resize: none;
+    color: #fff;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: rgba($color: #fff, $alpha: 0.6);
+    }
+  }
+
+  .note-title {
+    font-size: 2rem;
+  }
+
+  .note-text {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    height: 30rem;
+    scrollbar-color: #7a7a7a transparent;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    @include respond(500px) {
+      height: 44rem;
+    }
+
+    @include respond(320px) {
+      height: 51rem;
+    }
+  }
+}
+
+.hi-melody .user-inputs {
+  .note-title {
+    font-size: 2.6rem;
+  }
+
+  .note-text {
+    font-size: 2rem;
+  }
+}
+
+.sacramento .user-inputs {
+  .note-title {
+    font-size: 2.6rem;
+  }
+
+  .note-text {
+    font-size: 2.2rem;
+  }
+}
+
+.note-options {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 2rem;
+  position: relative;
+
+  button svg {
+    height: 2.4rem;
+  }
+}
